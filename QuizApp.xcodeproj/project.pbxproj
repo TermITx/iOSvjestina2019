@@ -56,15 +56,23 @@
 		5287E9F12465EBB100502BB4 /* QuizApp */ = {
 			isa = PBXGroup;
 			children = (
-				5287E9F22465EBB100502BB4 /* AppDelegate.swift */,
+				5287EA002465EBB500502BB4 /* Info.plist */,
 				5287E9F42465EBB100502BB4 /* SceneDelegate.swift */,
 				5287E9F62465EBB100502BB4 /* ViewController.swift */,
 				5287E9F82465EBB100502BB4 /* Main.storyboard */,
-				5287E9FB2465EBB500502BB4 /* Assets.xcassets */,
 				5287E9FD2465EBB500502BB4 /* LaunchScreen.storyboard */,
-				5287EA002465EBB500502BB4 /* Info.plist */,
+				5287EA062465F13200502BB4 /* supporting files */,
 			);
 			path = QuizApp;
+			sourceTree = "<group>";
+		};
+		5287EA062465F13200502BB4 /* supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				5287E9F22465EBB100502BB4 /* AppDelegate.swift */,
+				5287E9FB2465EBB500502BB4 /* Assets.xcassets */,
+			);
+			path = "supporting files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
