@@ -22,16 +22,17 @@ class ViewController: UIViewController {
         if (sender.tag == 0){
             let jsonData = ["username":usernameField.text,"password":passwordField.text]
             let urlString = "https://iosquiz.herokuapp.com/api/session"
-            DispatchQueue.main.async {
-                let out = self.authenticationService.sendLoginRequest(urlString: urlString,jsonData:jsonData)
-            
-                    print(out)
-                    if (out){
-                        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                        appDelegate.switchViewControllers()
-                        let myViewController = QuizController(nibName: "QuizController", bundle: nil)
-                        self.present(myViewController, animated: true, completion: nil)
+            self.authenticationService.sendLoginRequest(urlString: urlString,jsonData:jsonData){(out) in
+                DispatchQueue.main.async {
+                    if let out = out{
+                        if (out){
+                            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                            appDelegate.switchViewControllers()
+                            let myViewController = QuizController(nibName: "QuizController", bundle: nil)
+                            self.present(myViewController, animated: true, completion: nil)
+                        }
                     }
+                }
             }
             
         }

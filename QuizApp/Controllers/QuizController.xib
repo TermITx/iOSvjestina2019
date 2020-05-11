@@ -9,7 +9,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QuizController" customModule="QuizApp" customModuleProvider="target">
             <connections>
+                <outlet property="errorMsg" destination="jrQ-aE-DYM" id="GQ4-wh-AKE"/>
                 <outlet property="funFact" destination="Mnu-SW-Tj8" id="aqC-tB-dM9"/>
+                <outlet property="imageView" destination="0Qs-W8-ULA" id="kMp-W6-UyF"/>
+                <outlet property="questionView" destination="AxI-hW-6Rh" id="P19-wA-wH7"/>
+                <outlet property="titleField" destination="uCC-pS-kR7" id="h4C-jS-85U"/>
                 <outlet property="view" destination="iN0-l3-epB" id="nuW-Pc-JOy"/>
             </connections>
         </placeholder>
@@ -41,6 +45,22 @@
                     <color key="textColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Qs-W8-ULA">
+                    <rect key="frame" x="67" y="99" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uCC-pS-kR7">
+                    <rect key="frame" x="67" y="250" width="240" height="24"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AxI-hW-6Rh" customClass="QuestionView" customModule="QuizApp" customModuleProvider="target">
+                    <rect key="frame" x="67" y="289" width="240" height="234"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

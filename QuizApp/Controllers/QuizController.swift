@@ -11,31 +11,32 @@ import UIKit
 
 
 class QuizController: UIViewController {
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var questionView: QuestionView!
+    @IBOutlet weak var titleField: UILabel!
+    @IBOutlet weak var errorMsg: UILabel!
+    @IBOutlet weak var funFact: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
+        questionView.questionFIeld.text="dada"
     }
     var quizService = QuizService()
-    
-    @IBOutlet weak var funFact: UILabel!
+
     @IBAction func Dohvati(_ sender: UIButton) {
         if (sender.tag == 3){
             print("Clicked!")
             let urlString = "https://iosquiz.herokuapp.com/api/quizzes"
             quizService.fetchQuizes(urlString: urlString) { (quizzes) in
-                       // ovdje moramo izvrsiti ovaj kod na main dretvi, vise o tome u iducim predavanjima
+                
                        DispatchQueue.main.async {
-                            //var questions = [Quiz]()
                             var num = 0
                             if let quizzes = quizzes {
                                 for i in quizzes{
-                                    //print(i.questions)
                                     let prob = i.questions.map({
                                     (val: Question) -> String in
                                         return val.question
                                     })
-                                    //print(prob)
                                     let nbas = i.questions.map({
                                     (val: Question) -> String in
                                         return val.question
@@ -43,10 +44,26 @@ class QuizController: UIViewController {
                                         return value.contains("NBA")}
                                     num+=nbas.count
                                 }
-                           }
-                        self.funFact.isHidden=false
-                        self.funFact.text="Fun fact: Word NBA is used " + String(num) + " times in all of the quizes!"
-                        
+                                self.funFact.isHidden=false
+                                self.funFact.text="Fun fact: Word NBA is used " + String(num) + " times in all of the quizes!"
+                                let title = quizzes[0].title
+                                self.titleField.text=title
+                                self.titleField.isHidden=false
+                                print(quizzes[0].image)
+                                //var yourImage: UIImage = UIImage(named: quizzes[0].image)
+                                //print(yourImage)
+                                //self.imageView.image = yourImage
+                                //self.imageView.isHidden=false
+                                //self.questionView=QuestionView(frame: cg, question: quizzes[0].questions[0])
+                                var cg = CGRect(x: 50, y: 50, width: 100, height: 100)
+                                //self.questionView.questionFIeld.text=quizzes[0].questions[0].question
+                                //self.questionView = QuestionView(frame: cg, question: quizzes[0].questions[0])
+                                self.questionView.questionFIeld.text=quizzes[0].questions[0].question
+                               // self.questionView.answer1.setTitle(quizzes[0].questions[0], for: UIControl.State)
+                            }else{
+                                self.errorMsg.isHidden=false
+                        }
+
                        }
             }
         }

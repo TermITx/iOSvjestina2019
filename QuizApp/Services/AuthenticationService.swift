@@ -9,7 +9,7 @@
 import Foundation
 
 class AuthenticationService{
-    func sendLoginRequest(urlString: String, jsonData:[String:Any])->Bool{
+    func sendLoginRequest(urlString: String, jsonData:[String:Any], completion: @escaping ((Bool?) -> Void)){
         if let url = URL(string: urlString) {
             var request = URLRequest(url:url)
             request.httpMethod="POST"
@@ -22,12 +22,14 @@ class AuthenticationService{
             let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
                 if let error = error {
                         print("error: \(error)")
+                    completion(false)
+
                 }else {
                     if let response = response as? HTTPURLResponse {
                         print("statusCode: \(response.statusCode)")
                         if (response.statusCode >= 200 && response.statusCode<300){
                             print("Tu sem")
-                            out=true
+                            completion(true)
                         }
                         
                         
@@ -38,9 +40,6 @@ class AuthenticationService{
                 }
             }
             task.resume()
-            print(out)
-            return out
         }
-        return false
     }
 }
