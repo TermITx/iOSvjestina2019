@@ -38,8 +38,9 @@ class Quiz{
                     if let jsonDict2 = i as? [String: Any],
                         let id2 = jsonDict2["id"] as? Int,
                         let question = jsonDict2["question"] as? String,
+                        let answers = jsonDict2["answers"] as? [String],
                     let correctAnswer = jsonDict2["correct_answer"] as? Int{
-                    pom.append(Question(id: id2, question: question, correctAnswer: correctAnswer))
+                        pom.append(Question(id: id2, question: question,answers:answers, correctAnswer: correctAnswer))
                     }
                 }
                 self.questions = pom

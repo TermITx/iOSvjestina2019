@@ -27,7 +27,7 @@ class QuestionView: UIView {
     }
     // Ovaj init se poziva kada se CustomView inicijalizira iz .xib datoteke
        required init?(coder aDecoder: NSCoder) {
-        question=Question(id:1,question: "da",correctAnswer:0)
+        question=Question(id:1,question: "da",answers:["da","ne","myb","no"],correctAnswer:0)
            super.init(coder: aDecoder)
         Bundle.main.loadNibNamed("QuestionView", owner: self, options: nil)
         addSubview(questionView)

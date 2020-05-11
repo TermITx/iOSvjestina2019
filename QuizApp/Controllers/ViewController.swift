@@ -29,6 +29,8 @@ class ViewController: UIViewController {
                             let appDelegate = UIApplication.shared.delegate as! AppDelegate
                             appDelegate.switchViewControllers()
                             let myViewController = QuizController(nibName: "QuizController", bundle: nil)
+                            myViewController.modalPresentationStyle = .fullScreen
+                            myViewController.modalTransitionStyle = .crossDissolve
                             self.present(myViewController, animated: true, completion: nil)
                         }
                     }

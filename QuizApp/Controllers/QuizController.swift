@@ -19,7 +19,7 @@ class QuizController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        questionView.questionFIeld.text="dada"
+        questionView.questionFIeld.text="Question"
     }
     var quizService = QuizService()
 
@@ -59,7 +59,10 @@ class QuizController: UIViewController {
                                 //self.questionView.questionFIeld.text=quizzes[0].questions[0].question
                                 //self.questionView = QuestionView(frame: cg, question: quizzes[0].questions[0])
                                 self.questionView.questionFIeld.text=quizzes[0].questions[0].question
-                               // self.questionView.answer1.setTitle(quizzes[0].questions[0], for: UIControl.State)
+                                self.questionView.answer1.setTitle(quizzes[0].questions[0].answers[0], for: .normal)
+                                self.questionView.answer2.setTitle(quizzes[0].questions[0].answers[1], for: .normal)
+                                self.questionView.answer3.setTitle(quizzes[0].questions[0].answers[2], for: .normal)
+                                self.questionView.answer4.setTitle(quizzes[0].questions[0].answers[3], for: .normal)
                             }else{
                                 self.errorMsg.isHidden=false
                         }
