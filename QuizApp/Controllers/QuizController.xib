@@ -56,8 +56,8 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AxI-hW-6Rh" customClass="QuestionView" customModule="QuizApp" customModuleProvider="target">
-                    <rect key="frame" x="67" y="282" width="240" height="234"/>
+                <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AxI-hW-6Rh" customClass="QuestionView" customModule="QuizApp" customModuleProvider="target">
+                    <rect key="frame" x="16" y="282" width="240" height="234"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                 </view>

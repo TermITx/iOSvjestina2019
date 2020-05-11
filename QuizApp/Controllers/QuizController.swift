@@ -55,16 +55,35 @@ class QuizController: UIViewController {
                                 //self.imageView.image = yourImage
                                 //self.imageView.isHidden=false
                                 //self.questionView=QuestionView(frame: cg, question: quizzes[0].questions[0])
-                                var cg = CGRect(x: 50, y: 50, width: 100, height: 100)
+                                //var cg = CGRect(x: 50, y: 50, width: 100, height: 100)
+                                do {
+                                    let url = URL(string: quizzes[0].image)
+                                    let data = try Data(contentsOf: url!)
+                                    self.imageView.image = UIImage(data: data)
+                                    self.imageView.isHidden=false
+                                }
+                                catch{
+                                    print(error)
+                                }
+
                                 //self.questionView.questionFIeld.text=quizzes[0].questions[0].question
                                 //self.questionView = QuestionView(frame: cg, question: quizzes[0].questions[0])
+                                self.questionView.isHidden=false
                                 self.questionView.questionFIeld.text=quizzes[0].questions[0].question
                                 self.questionView.answer1.setTitle(quizzes[0].questions[0].answers[0], for: .normal)
                                 self.questionView.answer2.setTitle(quizzes[0].questions[0].answers[1], for: .normal)
                                 self.questionView.answer3.setTitle(quizzes[0].questions[0].answers[2], for: .normal)
                                 self.questionView.answer4.setTitle(quizzes[0].questions[0].answers[3], for: .normal)
+                                if (quizzes[0].category.text==Category.sports("SPORT").text){
+                                    self.imageView.backgroundColor = UIColor.gray
+                                    self.titleField.backgroundColor=UIColor.gray
+                                }else{
+                                    self.imageView.backgroundColor = UIColor.red
+                                    self.titleField.backgroundColor=UIColor.red
+                                }
                             }else{
                                 self.errorMsg.isHidden=false
+
                         }
 
                        }
